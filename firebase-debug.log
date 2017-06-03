@@ -1,0 +1,28 @@
+[debug] [2017-06-03T11:10:11.889Z] ----------------------------------------------------------------------
+[debug] [2017-06-03T11:10:11.892Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\senok\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-06-03T11:10:11.892Z] CLI Version:  3.9.1
+[debug] [2017-06-03T11:10:11.892Z] Platform:     win32
+[debug] [2017-06-03T11:10:11.892Z] Node Version: v6.9.2
+[debug] [2017-06-03T11:10:11.892Z] Time:         Sat Jun 03 2017 14:10:11 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-03T11:10:11.892Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-03T11:10:11.904Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-03T11:10:11.904Z] > authorizing via signed-in user
+[debug] [2017-06-03T11:10:11.906Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/online-editor-c9956  
+ Sat Jun 03 2017 14:10:11 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-03T11:10:12.861Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-03T11:10:12.862Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/online-editor-c9956/tokens  
+ Sat Jun 03 2017 14:10:12 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-03T11:10:13.550Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\projects\online-editor'...
+[info] 
+[debug] [2017-06-03T11:10:13.555Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/online-editor-c9956  
+ Sat Jun 03 2017 14:10:13 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-03T11:10:14.677Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-03T11:10:14.677Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/243603094524/clients/_:getWebAppConfig  
+ Sat Jun 03 2017 14:10:14 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-03T11:10:15.663Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
