@@ -1,35 +1,52 @@
-[debug] [2017-06-04T07:05:33.036Z] ----------------------------------------------------------------------
-[debug] [2017-06-04T07:05:33.038Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\senok\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] [2017-06-04T07:05:33.039Z] CLI Version:  3.9.1
-[debug] [2017-06-04T07:05:33.039Z] Platform:     win32
-[debug] [2017-06-04T07:05:33.039Z] Node Version: v6.9.2
-[debug] [2017-06-04T07:05:33.039Z] Time:         Sun Jun 04 2017 10:05:33 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:33.039Z] ----------------------------------------------------------------------
+[debug] [2017-06-04T09:54:07.911Z] ----------------------------------------------------------------------
+[debug] [2017-06-04T09:54:07.914Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\senok\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2017-06-04T09:54:07.914Z] CLI Version:  3.9.1
+[debug] [2017-06-04T09:54:07.915Z] Platform:     win32
+[debug] [2017-06-04T09:54:07.915Z] Node Version: v6.9.2
+[debug] [2017-06-04T09:54:07.915Z] Time:         Sun Jun 04 2017 12:54:07 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:07.915Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-06-04T07:05:33.051Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-06-04T07:05:33.051Z] > authorizing via signed-in user
-[debug] [2017-06-04T07:05:33.053Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/online-editor-c9956  
- Sun Jun 04 2017 10:05:33 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:36.687Z] <<< HTTP RESPONSE 200
-[debug] [2017-06-04T07:05:36.688Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/online-editor-c9956/tokens  
- Sun Jun 04 2017 10:05:36 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:38.835Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-04T09:54:07.938Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-04T09:54:07.938Z] > authorizing via signed-in user
+[debug] [2017-06-04T09:54:07.941Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-06-04T09:54:07.941Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/xNA06ipRQ_2J-zB1waxlm9RNXHDmsFf15RaVGUz3JQ9S7Hpe9aRmR5iZoQVgRbNq',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Jun 04 2017 12:54:07 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:08.242Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-04T09:54:08.248Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/online-editor-c9956  
+ Sun Jun 04 2017 12:54:08 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:09.387Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-04T09:54:09.388Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/online-editor-c9956/tokens  
+ Sun Jun 04 2017 12:54:09 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:10.255Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Serving from 'D:\projects\online-editor'...
+[info] === Deploying to 'online-editor-c9956'...
 [info] 
-[debug] [2017-06-04T07:05:38.840Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/online-editor-c9956  
- Sun Jun 04 2017 10:05:38 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:45.795Z] <<< HTTP RESPONSE 200
-[debug] [2017-06-04T07:05:45.795Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/243603094524/clients/_:getWebAppConfig  
- Sun Jun 04 2017 10:05:45 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:51.013Z] <<< HTTP RESPONSE 200
-[warn] !  hosting: Port 5000 is not available. Trying another port...
-[debug] [2017-06-04T07:05:51.047Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/online-editor-c9956  
- Sun Jun 04 2017 10:05:51 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:53.522Z] <<< HTTP RESPONSE 200
-[debug] [2017-06-04T07:05:53.523Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/243603094524/clients/_:getWebAppConfig  
- Sun Jun 04 2017 10:05:53 GMT+0300 (Turkey Standard Time)
-[debug] [2017-06-04T07:05:55.824Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] +  hosting: Local server: http://localhost:5004
-
+[info] i  deploying database, functions, hosting
+[info] +  database: rules ready to deploy.
+[debug] [2017-06-04T09:54:12.027Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.2.1",
+    "firebase-functions": "^0.5.7"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-06-04T09:54:12.030Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/online-editor-c9956?view=CONSUMER_VIEW  
+ Sun Jun 04 2017 12:54:12 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:12.030Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/online-editor-c9956?view=CONSUMER_VIEW  
+ Sun Jun 04 2017 12:54:12 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:13.636Z] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-06-04T09:54:13.805Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2017-06-04T09:54:13.807Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/online-editor-c9956  
+ Sun Jun 04 2017 12:54:13 GMT+0300 (Turkey Standard Time)
+[debug] [2017-06-04T09:54:13.808Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/online-editor-c9956/apiKeys  
+ Sun Jun 04 2017 12:54:13 GMT+0300 (Turkey Standard Time)

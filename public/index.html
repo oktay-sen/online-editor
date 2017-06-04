@@ -8,20 +8,6 @@
   <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
   <script src="/__/firebase/init.js"></script>
   <style type="text/css" media="screen">
-    #editor1 {
-        position: absolute; /* Added */
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-   }
-   #editor2 {
-       position: absolute; /* Added */
-       top: 0;
-       right: 0;
-       bottom: 0;
-       left: 0;
-  }
   .mdl-layout__tab {
     text-transform: none;
   }
@@ -40,10 +26,11 @@
     overflow: visible;
   }
   .add-button{
-    /*position: absolute;*/
+    position: absolute;
     /*right: 10px;*/
     /*bottom: -25px;*/
-    bottom: 25px;
+    left:15px;
+    bottom: 15px;
     z-index: 100;
   }
 
@@ -71,38 +58,20 @@
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">index.html</a>
-      <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
-      <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
-      <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
-      <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-badge--overlap add-button">
-          <i class="material-icons">add</i>
-      </button>
-      <div class="mdl-layout-spacer"></div>
+      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Welcome<i class="material-icons">cancel</i></a>
     </div>
+    <button id = "add-button"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-badge--overlap add-button">
+        <i class="material-icons">add</i>
+    </button>
+    <span id="add-button-label" for="add-button" class="mdl-tooltip">New File</span>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Title</span>
   </div>
   <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-      <div class="page-content editor" id="editor1">fdfgdh</div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-      <div class="page-content editor" id="editor2"></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
-      <div class="page-content">Page 3</div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-4">
-      <div class="page-content">Page 4</div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-5">
-      <div class="page-content">Page 5</div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-6">
-      <div class="page-content"></div>
+      <div class="page-content editor" id="editor1" style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;">Click the plus icon to create a new file and start typing!</div>
     </section>
   </main>
 </div>
