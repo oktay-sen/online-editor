@@ -8,6 +8,8 @@ var tabBar = document.getElementsByClassName("mdl-layout__tab-bar")[0];
 var content = document.getElementsByClassName("mdl-layout__content")[0];
 var layout = document.getElementsByClassName("mdl-layout")[0];
 
+var tabList = new Map();
+
 window.onload = function() {
   window.lastTabId = 0;
   var editor = ace.edit("editor1");
@@ -59,6 +61,14 @@ function addTabWithCode(title, content) {
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/javascript");
   editor.focus();
+  editor.commands.addCommand({
+    name: 'myCommand',
+    bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
+    exec: function(editor) {
+        window.alert("Save!");
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+});
   //setTimeout(() => {editor.resize()},500);
   return editor;
 }
@@ -76,22 +86,41 @@ function setActiveTab(id) {
 }
 
 function createTab(title) {
+  if (!tabs) {
+    tabs = new Map();
+  }
   var id = ++window.lastTabId;
+  var tabId = "tab-" + id;
+  var contentId = "content-tab-" + id;
   var tab = document.createElement('div');
-  tab.innerHTML = '<a href="#content-tab-'+id+'" id="tab-'+id+'" class="mdl-layout__tab">'+title+'</a>';
+  tab.innerHTML = '<a href="#'+contentId+'" id="'+tabId+'" class="mdl-layout__tab">'+title+
+    '<button class="tab-close"><i class="material-icons md-18">close</i></button></a>';
   tab = tab.firstChild;
-  // if (componentHandler) {
-  //   componentHandler.upgradeElement(tab);
-  // }
+
+  tab.getElementsByClassName("tab-close")[0].onclick = function(e) {
+    //Finds a tab to switch to.
+    var lastTabId = -1;
+    for (var key of tabList.keys()) {
+      if (lastTabId === id) {
+        setActiveTab(key);
+        break;
+      } else if (key === id && lastTabId !== -1) {
+        setActiveTab(lastTabId);
+        break;
+      }
+    }
+    //TODO: If code, prompt save.
+    document.getElementById(tabId).outerHTML = '';
+    document.getElementById(contentId).outerHTML = '';
+    return true;
+  }
 
   var tabContent = document.createElement('div');
   tabContent.innerHTML =
   '<section class="mdl-layout__tab-panel" id="content-tab-'+id+'">' +
   '</section>';
   tabContent = tabContent.firstChild;
-  // if (componentHandler) {
-  //   componentHandler.upgradeElement(tabContent);
-  // }
+
   tabBar.insertBefore(tab, tabBar.firstChild);
   content.insertBefore(tabContent, content.firstChild);
 
@@ -100,13 +129,8 @@ function createTab(title) {
   for (var i = 0; i < tabs.length; i++) {
     new MaterialLayoutTab(tabs[i], tabs, panels, layout.MaterialLayout);
   }
-  // if (componentHandler) {
-  //   // componentHandler.upgradeElement(tabContent);
-  //   componentHandler.downgradeElements(layout);
-  //   componentHandler.upgradeElements(layout);
-  // }
 
-
+  tabList.set(id, {'title': title});
 
   return id;
 }
