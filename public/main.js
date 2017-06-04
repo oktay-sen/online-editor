@@ -47,7 +47,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 firebase.auth().getRedirectResult().then(function(result) {
   var user = result.user;
-  snackbar.MaterialSnackbar.showSnackbar({message: "Signed in as " + user.displayName + "."});
+  if (user) {
+    snackbar.MaterialSnackbar.showSnackbar({message: "Signed in as " + user.displayName + "."});
+  }
 });
 
 
