@@ -9,9 +9,9 @@ var content = document.getElementsByClassName("mdl-layout__content")[0];
 var layout = document.getElementsByClassName("mdl-layout")[0];
 
 var tabList = new Map();
+window.lastTabId = 0;
 
 window.onload = function() {
-  window.lastTabId = 0;
   var editor = ace.edit("editor1");
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/javascript");
@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     loginButton.innerHTML = '<img class="profile-pic" src="'+ user.photoURL +'"/>';
     loginButton.onclick = () => {};
     loginButtonLabel.innerHTML = "Logged in as <strong>"+ user.displayName +"</strong>";
-  }
+}
 });
 
 
@@ -105,10 +105,14 @@ function createTab(title) {
     for (var key of tabList.keys()) {
       if (lastTabId === id) {
         setActiveTab(key);
+        console.log("active tab is " + key);
         break;
       } else if (key === id && lastTabId !== -1) {
         setActiveTab(lastTabId);
+        console.log("active tab is " + lastTabId);
         break;
+      } else {
+        console.log(key + " isn't a valid tab to switch to.");
       }
     }
     //TODO: If code, prompt save.
