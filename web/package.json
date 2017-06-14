@@ -1,0 +1,14 @@
+{
+  "name": "editor",
+  "version": "1.0.0",
+  "description": "A code editor by Oktay Sen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oktay Sen",
+  "license": "ISC",
+  "dependencies": {
+    "material-components-web": "^0.13.0"
+  }
+}

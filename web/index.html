@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="mdc-typography">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Greeting App</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <style>
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        min-height: 100%;
+      }
+
+      main {
+        margin: 8px;
+      }
+
+      #content-wrapper {
+        display: flex;
+        flex: 1;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      .mdc-persistent-drawer {
+        height:auto;
+      }
+
+      #menu-button {
+        margin: 8px;
+      }
+
+      .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::before,
+      .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::after {
+        background-color: rgba(255, 255, 255, .2);
+      }
+
+      #greeting-form > button {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+    <header class="mdc-toolbar mdc-toolbar--fixed" data-mdc-auto-init="MDCToolbar">
+      <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+          <i id="menu-button" class="mdc-icon-toggle material-icons mdc-theme--text-primary-on-primary" role="button" aria-pressed="false"
+             aria-label="Add to favorites" tabindex="0"
+             data-toggle-on='{"label": "Menu", "content": "menu"}'
+             data-toggle-off='{"label": "Menu", "content": "menu"}'>
+            menu
+          </i>
+          <!-- <button class="mdc-button"><i class="material-icons">menu</i></button> -->
+          <!-- <a href="#" class="material-icons">menu</a> -->
+          <span class="mdc-toolbar__title">Title</span>
+        </section>
+      </div>
+      <div class="mdc-toolbar__row">
+        <p>Tabs go here</p>
+      </div>
+    </header>
+
+    <div id="content-wrapper" class="mdc-toolbar-fixed-adjust">
+      <aside class="mdc-persistent-drawer mdc-typography mdc-persistent-drawer--open">
+        <nav class="mdc-persistent-drawer__drawer">
+          <!-- <div class="mdc-persistent-drawer__toolbar-spacer"></div> -->
+          <header class="mdc-persistent-drawer__header">
+            <div class="mdc-persistent-drawer__header-content">
+              Header here
+            </div>
+          </header>
+          <nav id="icon-with-text-demo" class="mdc-persistent-drawer__content mdc-list">
+            <a class="mdc-list-item mdc-persistent-drawer--selected" href="#">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
+            </a>
+            <a class="mdc-list-item" href="#">
+              <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">star</i>Star
+            </a>
+          </nav>
+        </nav>
+      </aside>
+      <main id="content"  class="mdc-toolbar-fixed-adjust">
+
+        <h1 class="mdc-typography--display1">Tell us about yourself!</h1>
+
+        <form action="#" id="greeting-form">
+          <div>
+            <div class="mdc-form-field">
+              <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+                <input id="firstname" type="text" class="mdc-textfield__input">
+                <label for="firstname" class="mdc-textfield__label">
+                  First Name
+                </label>
+              </div>
+            </div>
+
+            <div class="mdc-form-field">
+              <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+                <input id="lastname" type="text" class="mdc-textfield__input">
+                <label for="lastname" class="mdc-textfield__label">
+                  Last Name
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit"
+                  class="mdc-button
+                         mdc-button--raised
+                         mdc-button--primary
+                         mdc-ripple-surface"
+                  data-mdc-auto-init="MDCRipple">
+            Print Greeting
+          </button>
+        </form>
+
+        <!-- The p element below is where we'll eventually output our greeting -->
+        <p class="mdc-typography--headline" id="greeting"></p>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>window.mdc.autoInit();</script>
+    <script>
+      document.getElementById('greeting-form').addEventListener('submit', function(evt) {
+        evt.preventDefault();
+        var firstname = evt.target.elements.firstname.value;
+        var lastname = evt.target.elements.lastname.value;
+        var greeting = 'Hello';
+        if (firstname || lastname) {
+          greeting += ', ';
+          if (firstname && lastname) {
+            greeting += firstname + ' ' + lastname;
+          } else if (lastname) {
+            greeting += 'Mx. ' + lastname;
+          } else {
+            greeting += firstname;
+          }
+        }
+        greeting += '!';
+
+        document.getElementById('greeting').textContent = greeting;
+      });
+
+      let drawer = new mdc.drawer.MDCPersistentDrawer(document.querySelector('.mdc-persistent-drawer'));
+      document.querySelector('#menu-button').addEventListener('click', () => {console.log("Menu clicked.");drawer.open = !drawer.open});
+    </script>
+  </body>
+</html>
