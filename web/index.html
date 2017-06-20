@@ -50,6 +50,18 @@
       #greeting-form > button {
         margin-top: 8px;
       }
+
+      .mdc-tab {
+        text-transform: none;
+      }
+
+      .mdc-tab-bar-scroller__indicator__inner {
+        color: rgba(255, 255, 255, .8);;
+      }
+
+      .mdc-tab-bar-scroller__indicator__inner:hover {
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -71,7 +83,38 @@
         </section>
       </div>
       <div class="mdc-toolbar__row">
-        <p>Tabs go here</p>
+        <div id="tab-bar-scroller" class="mdc-tab-bar-scroller">
+          <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--back">
+            <a class="mdc-tab-bar-scroller__indicator__inner material-icons" href="#" aria-label="scroll back button">
+              navigate_before
+            </a>
+          </div>
+          <div class="mdc-tab-bar-scroller__scroll-frame">
+            <nav id="scrollable-tab-bar" class="mdc-tab-bar mdc-tab-bar-scroller__scroll-frame__tabs"  data-mdc-auto-init="MDCTabBar">
+              <a class="mdc-tab" href="#one">Item One</a>
+              <a class="mdc-tab" href="#two">Item Two</a>
+              <a class="mdc-tab" href="#three">Item Three</a>
+              <a class="mdc-tab" href="#four">Item Four</a>
+              <a class="mdc-tab" href="#five">Item Five</a>
+              <a class="mdc-tab" href="#six">Item Six</a>
+              <a class="mdc-tab" href="#seven">Item Seven</a>
+              <a class="mdc-tab" href="#eight">Item Eight</a>
+              <a class="mdc-tab" href="#nine">Item Nine</a>
+              <a class="mdc-tab" href="#ten">Item Ten</a>
+              <a class="mdc-tab" href="#eleven">Item Eleven</a>
+              <a class="mdc-tab" href="#twelve">Item Twelve</a>
+              <a class="mdc-tab" href="#thirteen">Item Thirteen</a>
+              <a class="mdc-tab" href="#fourteen">Item Fourteen</a>
+              <a class="mdc-tab" href="#fifteen">Item Fifteen</a>
+              <span class="mdc-tab-bar__indicator"></span>
+            </nav>
+          </div>
+          <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--forward mdc-tab-bar-scroller__indicator--enabled">
+            <a class="mdc-tab-bar-scroller__indicator__inner material-icons" href="#" aria-label="scroll forward button">
+              navigate_next
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -157,9 +200,6 @@
 
         document.getElementById('greeting').textContent = greeting;
       });
-
-      let drawer = new mdc.drawer.MDCPersistentDrawer(document.querySelector('.mdc-persistent-drawer'));
-      document.querySelector('#menu-button').addEventListener('click', () => {console.log("Menu clicked.");drawer.open = !drawer.open});
     </script>
   </body>
 </html>
