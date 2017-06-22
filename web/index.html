@@ -62,6 +62,10 @@
       .mdc-tab-bar-scroller__indicator__inner:hover {
         color: white;
       }
+
+      .mdc-toolbar__tabs-row {
+        bottom: -8px;
+      }
     </style>
   </head>
   <body>
@@ -82,7 +86,7 @@
           <span class="mdc-toolbar__title">Title</span>
         </section>
       </div>
-      <div class="mdc-toolbar__row">
+      <div class="mdc-toolbar__row mdc-toolbar__tabs-row">
         <div id="tab-bar-scroller" class="mdc-tab-bar-scroller">
           <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--back">
             <a class="mdc-tab-bar-scroller__indicator__inner material-icons" href="#" aria-label="scroll back button">
@@ -181,6 +185,15 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script>window.mdc.autoInit();</script>
     <script>
+      const MDCTab = mdc.tabs.MDCTab;
+      const MDCTabFoundation = mdc.tabs.MDCTabFoundation;
+
+      const MDCTabBar = mdc.tabs.MDCTabBar;
+      const MDCTabBarFoundation = mdc.tabs.MDCTabBarFoundation;
+
+      const MDCTabBarScroller = mdc.tabs.MDCTabBarScroller;
+      const MDCTabBarScrollerFoundation = mdc.tabs.MDCTabBarScrollerFoundation;
+
       document.getElementById('greeting-form').addEventListener('submit', function(evt) {
         evt.preventDefault();
         var firstname = evt.target.elements.firstname.value;
@@ -200,6 +213,14 @@
 
         document.getElementById('greeting').textContent = greeting;
       });
+
+      let drawer = new mdc.drawer.MDCPersistentDrawer(document.querySelector('.mdc-persistent-drawer'));
+      document.querySelector('#menu-button').addEventListener('click', () => {console.log("Menu clicked.");drawer.open = !drawer.open})
+
+      let tabBarElem = document.getElementById("scrollable-tab-bar");
+      let tabBar = tabBarElem.MDCTabBar;
+      let tabBarScrollerElem = document.getElementById("tab-bar-scroller");
+      let tabBarScroller = new MDCTabBarScroller(tabBarScrollerElem, undefined, tabBar);
     </script>
   </body>
 </html>
